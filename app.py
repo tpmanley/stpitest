@@ -5,15 +5,15 @@ import door
 
 app = Flask(__name__)
 
-doors = [door.GarageDoor(0)]
+doors = [door.GarageDoor(0), door.Door(3)]
 
-@app.route('/door/<door>/open')
+@app.route('/door/<int:door>/open')
 def open_door(door):
     print "Open %s" % door
     doors[door].open()
     return "OK"
 
-@app.route('/door/<door>/close')
+@app.route('/door/<int:door>/close')
 def close_door(door):
     print "Close %s" % door
     doors[door].close()
